@@ -6,7 +6,7 @@ type MessageHandlerFunc func(*amqp.Delivery) bool
 
 type Consumer interface {
 	Connect(string) error
-	SubscribeToQueue(*SubscribeToQueueOpts) error
+	SubscribeToQueue(MessageHandlerFunc, *SubscribeToQueueOpts) error
 	Close()
 }
 
